@@ -2,7 +2,7 @@
 
 All your runs on one map. Authenticates with Strava and renders every recorded run as an overlaid polyline on a dark map.
 
-![Screenshot](imgs/Screenshot%202026-03-06%20at%202.58.26%20PM.png)
+![Screenshot](imgs/screenshot.png)
 
 ## Stack
 
