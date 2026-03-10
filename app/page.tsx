@@ -14,6 +14,12 @@ export default async function LandingPage() {
       </h1>
       <p className="text-sm text-white/50 mb-8">All your runs on one map</p>
       <ConnectButton />
+      <a
+        href="/demo"
+        className="mt-4 text-xs text-white/30 hover:text-white/60 transition-colors"
+      >
+        view demo
+      </a>
     </main>
   )
 }

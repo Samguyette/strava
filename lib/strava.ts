@@ -14,6 +14,7 @@ export interface ActivitiesResult {
   stats: ActivityStats
 }
 
+
 export async function fetchAllActivities(accessToken: string): Promise<ActivitiesResult> {
   const features: Feature<LineString>[] = []
   let totalDistanceMeters = 0
@@ -38,6 +39,8 @@ export async function fetchAllActivities(accessToken: string): Promise<Activitie
       const encoded: string | undefined = activity.map?.summary_polyline
       if (!encoded) continue
 
+      const year = new Date(activity.start_date).getFullYear()
+
       // Decode polyline: returns [lat, lng] pairs — swap to [lng, lat] for GeoJSON
       const coords = polyline
         .decode(encoded)
@@ -46,7 +49,7 @@ export async function fetchAllActivities(accessToken: string): Promise<Activitie
       features.push({
         type: "Feature",
         geometry: { type: "LineString", coordinates: coords },
-        properties: { id: activity.id, name: activity.name },
+        properties: { id: activity.id, name: activity.name, year },
       })
     }
 
